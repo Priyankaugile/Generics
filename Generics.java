@@ -1,31 +1,32 @@
 package com.generics;
 
-import java.util.Scanner;
+public class Refactore1 {
+    // method extends comparable and returns max value
+    public static <T extends Comparable<T>> T findMax (T[] some_Array){
 
-public class MaximumNumberWithString {
-   //returns the max string name of three strings
+        T max = some_Array[0];
+        for(T t : some_Array){
+            if(t.compareTo(max)>0)
+                max = t;
+        }
+        return max;
+    }
 
-   public static String findMax(String m, String n, String o) {
-       String max = m;
-       if(n.compareTo(max)> 0)
-           max = n;
-       if(o.compareTo(max)>0)
-           max = o;
-       System.out.printf("The max of three numbers %s %s %s is : %s \n",m,n,o,max);
-       return max;
-   }
     public static void main(String[] args) {
-        //TC1.1 maximum string name at first
-        String String1 = "Apple", String2 = "Google",String3 = "Microsoft";
-        String max1 = findMax(String1,String2,String3);
 
-        //TC1.2 maximum string name  at second
-        String String4 = "iphone", String5 = "Amazon",String6 = "Royal";
-        String max2 = findMax(String4,String5,String6);
+        Integer[] array_Of_Integer = {47,20,98};
+        Float[] array_Of_Floats = {23.65f,96.42f,44.07f};
+        String[] array_Of_Strings = {"apple","Peach","banana"};
 
-        //TC1.3 maximum string name at third
-        String String7 = "Hathaway", String8 = "Dollar",String9 = "phone";
-        String max3 = findMax(String7,String8,String9);
+        Integer max_Of_Three_Integer = findMax(array_Of_Integer);
+        System.out.println("The maximum value of three integers is : "+max_Of_Three_Integer);
+
+        Float  max_Of_Three_Floats = findMax(array_Of_Floats);
+        System.out.println("The maximum value of three floats is : "+max_Of_Three_Floats);
+
+        String max_Of_Three_Strings = findMax(array_Of_Strings);
+        System.out.println("The maximum value of three strings is : "+max_Of_Three_Strings);
+
     }
 }
 
