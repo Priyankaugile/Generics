@@ -1,33 +1,95 @@
 package com.generics;
 
-public class Refactore1 {
-    // method extends comparable and returns max value
-    public static <T extends Comparable<T>> T findMax (T[] some_Array){
+import java.util.Scanner;
 
-        T max = some_Array[0];
-        for(T t : some_Array){
-            if(t.compareTo(max)>0)
+public class MaxNoTest<T extends Comparable<T>> {
+
+    //instance variables
+    Integer[] arrayOfInt;
+    Float []  arrayOfFloat;
+    String[] arrayOfString;
+
+    public MaxNoTest(Integer[] arrayOfInt, Float[] arrayOfFloat, String[] arrayOfString) {
+        this.arrayOfInt = arrayOfInt;
+        this.arrayOfFloat = arrayOfFloat;
+        this.arrayOfString = arrayOfString;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // taking input from user.
+        System.out.println("Enter the size of all three arrays : ");
+        int size = scanner.nextInt();
+
+        Integer[] a = new Integer[size];
+        Float[] b = new Float[size];
+        String[] c = new String[size];
+
+        // user input for integer values.
+        System.out.println("Enter " + size + " Integer Values : ");
+        for (int i = 0; i < size; i++) {
+            a[i] = scanner.nextInt();
+        }
+
+        //user input for float values
+        System.out.println("Enter " + size + " Float Values : ");
+        for (int i = 0; i < size; i++) {
+            b[i] = scanner.nextFloat();
+        }
+
+        // user input for string values.
+        System.out.println("Enter " + size + " String Values : ");
+        for (int i = 0; i < size; i++) {
+            c[i] = scanner.next();
+        }
+
+        new MaxNoTest(a, b, c).testMaximum();
+
+
+    }
+
+    private void testMaximum() {
+
+        //passing instance variable to static testMaximum method
+        Integer maxOfThreeInt = printMax(arrayOfInt);
+        System.out.println("The maximum value of three integers is : " + maxOfThreeInt);
+
+        Float maxOfThreeFloat = printMax(arrayOfFloat);
+        System.out.println("The maximum value of three floats is : " + maxOfThreeFloat);
+
+        String maxOfThreeString = printMax(arrayOfString);
+        System.out.println("The maximum value of three string is : " + maxOfThreeString);
+    }
+
+    //displays maximum of three values.
+    public static Integer printMax(Integer[] someArray) {
+
+        Integer max = someArray[0];
+        for (Integer t : someArray) {
+            if (t.compareTo(max) > 0)
                 max = t;
         }
         return max;
     }
+    public static Float printMax(Float[] someArray) {
 
-    public static void main(String[] args) {
+        Float max = someArray[0];
+        for (Float t : someArray) {
+            if (t.compareTo(max) > 0)
+                max = t;
+        }
+        return max;
+    }
+    public static String printMax(String[] someArray) {
 
-        Integer[] array_Of_Integer = {47,20,98};
-        Float[] array_Of_Floats = {23.65f,96.42f,44.07f};
-        String[] array_Of_Strings = {"apple","Peach","banana"};
-
-        Integer max_Of_Three_Integer = findMax(array_Of_Integer);
-        System.out.println("The maximum value of three integers is : "+max_Of_Three_Integer);
-
-        Float  max_Of_Three_Floats = findMax(array_Of_Floats);
-        System.out.println("The maximum value of three floats is : "+max_Of_Three_Floats);
-
-        String max_Of_Three_Strings = findMax(array_Of_Strings);
-        System.out.println("The maximum value of three strings is : "+max_Of_Three_Strings);
-
+        String max = someArray[0];
+        for (String t : someArray) {
+            if (t.compareTo(max) > 0)
+                max = t;
+        }
+        return max;
     }
 }
-
 
