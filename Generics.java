@@ -1,30 +1,28 @@
 package com.generics;
 
-public class MaximumNumber {
-    //returns the maximum value of three integer.
-    public static Integer findmax(Integer p, Integer q, Integer r){
-        Integer max = p;
-        if(q.compareTo(max)>0)
-            max = q;
-        if (r.compareTo(max)>0)
-            max = r;
-        System.out.printf("The maximum of three numbers %s %s %s is : %s \n",p,q,r,max);
+public class MaximumNumberWithFloat {
+    //returns the maximum value of three floats
+    public static Float findMax(Float m, Float n, Float o) {
+        Float max = m;
+        if(n.compareTo(max)> 0)
+            max = n;
+        if(o.compareTo(max)>0)
+            max = o;
+        System.out.printf("The max of three numbers %s %s %s is : %s \n",m,n,o,max);
         return max;
     }
-
     public static void main(String[] args) {
-        //tc1.1 maximum number at first.
-        Integer int1 = 20, int2 = 31, int3 = 47;
-        Integer max1 = findmax(int1,int2,int3);
+        //TC1.1 maximum number at first
+        Float float1 = 3.45f, float2 = 45.30f,float3 = 87.6f;
+        Float max = findMax(float1,float2,float3);
 
-        //tc1.2 maximum number at second.
-        Integer int4 = 71,int5 = 84, int6 = 91;
-        Integer max2 = findmax(int4,int5,int6);
+        //TC1.2 maximum number at second
+        Float float4 = 23.0f,float5 = 98.98f,float6 = 4876.76f;
+        float max1 = findMax(float4,float5,float6);
 
-        //tc1.3 maximum number at third.
-        Integer int7 = 55, int8 = 11, int9 = 78;
-        Integer max3 = findmax(int7,int8,int9);
+        //TC1.3 maximum number at third
+        Float float7 = 36.56f,float8 = 73.65f,float9 = 42.06f;
+        float max2 = findMax(float7,float8,float9);
     }
-
 }
 
